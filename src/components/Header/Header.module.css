@@ -1,0 +1,26 @@
+.navLink {
+    position: relative;
+}
+
+/* default: hidden dash */
+.navLink::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    /* space below text */
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 16px;
+    /* dash length */
+    height: 3px;
+    /* thickness */
+    background-color: #f33d3d;
+    /* AUDAX red */
+    border-radius: 2px;
+    transition: transform 0.25s ease;
+}
+
+/* active page */
+.active::after {
+    transform: translateX(-50%) scaleX(1);
+}
