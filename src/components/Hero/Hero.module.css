@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  height: 100vh;
-  /* 🔑 full viewport */
+  /* controls the height of the hero */
+  height: 70vh;
   overflow: hidden;
 }
 

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { NAV_ITEMS } from "./constants";
 import styles from "./Header.module.css";
 import BrandMark from "./BrandMark";
+import { phoneNumber, phoneNumberStr } from '@/constants'
 
 export default function Header() {
   const pathname = usePathname();
@@ -25,19 +26,20 @@ export default function Header() {
       <div className="fixed top-0 left-0 right-0 z-50 bg-audax-cream text-audax-charcoal">
         <div className="mx-auto max-w-7xl flex justify-end items-center px-6 py-[1.5px] text-xs tracking-wide">
           <a
-            href="tel:16313936520"
+            href={`tel:${phoneNumberStr}`}
             className="flex items-center gap-2 hover:text-audax-gold transition"
           >
-            📞 <span>Call us: 631-393-6520</span>
+            📞 <span>Call us: {phoneNumber}</span>
           </a>
         </div>
-      </div>
+      </div >
 
       {/* MAIN HEADER */}
-      <header
+      < header
         className={`fixed left-0 right-0 z-40 transition-all duration-300 ease-smooth ${scrolled ? "bg-white/90 backdrop-blur shadow-header" : "bg-transparent"
-          }`}
-        style={{ top: "32px", height: "80px" }}
+          }`
+        }
+        style={{ top: "30px", height: "80px" }}
       >
         <div className="h-full flex items-center justify-between px-[2vw] py-[4px]">
           {/* LEFT: LOGO + BRAND */}
@@ -101,23 +103,25 @@ export default function Header() {
         </div>
 
         {/* MOBILE MENU */}
-        {menuOpen && (
-          <div className="md:hidden bg-white border-t border-black/10">
-            <nav className="flex flex-col px-6 py-4 gap-4">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-sm tracking-wide text-audax-charcoal hover:text-audax-gold"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        )}
-      </header>
+        {
+          menuOpen && (
+            <div className="md:hidden bg-white border-t border-black/10">
+              <nav className="flex flex-col px-6 py-4 gap-4">
+                {NAV_ITEMS.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-sm tracking-wide text-audax-charcoal hover:text-audax-gold"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          )
+        }
+      </header >
     </>
   );
 }
