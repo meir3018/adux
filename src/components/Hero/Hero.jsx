@@ -18,9 +18,9 @@ export default function Hero() {
 
   const prev = useRef(active);
 
-useEffect(() => {
-  prev.current = active;
-}, [active]);
+  useEffect(() => {
+    prev.current = active;
+  }, [active]);
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -31,19 +31,19 @@ useEffect(() => {
     return () => obs.disconnect();
   }, []);
 
-useEffect(() => {
-  if (paused || !inView) {
-    return undefined;
-  }
+  useEffect(() => {
+    if (paused || !inView) {
+      return undefined;
+    }
 
-  timer.current = setInterval(() => {
-    setActive((a) => (a + 1) % HERO_SLIDES.length);
-  }, INTERVAL);
+    timer.current = setInterval(() => {
+      setActive((a) => (a + 1) % HERO_SLIDES.length);
+    }, INTERVAL);
 
-  return () => {
-    clearInterval(timer.current);
-  };
-}, [paused, inView]);
+    return () => {
+      clearInterval(timer.current);
+    };
+  }, [paused, inView]);
 
 
   useEffect(() => {
@@ -82,9 +82,9 @@ useEffect(() => {
 
       <div className={styles.overlay} />
 
-      <div className={styles.content}>
+      <div key={active} className={styles.content}>
         <h1 className={styles.title}>{slide.title}</h1>
-        <p className={styles.subtitle}>{slide.subtitle}</p>
+        <h2 className={styles.subtitle}>{slide.subtitle}</h2>
         <a href={slide.cta.href} className={styles.cta}>
           {slide.cta.label}
         </a>
@@ -95,9 +95,8 @@ useEffect(() => {
           <button
             key={i}
             onClick={() => setActive(i)}
-            className={`${styles.dot} ${
-              i === active ? styles.activeDot : ""
-            }`}
+            className={`${styles.dot} ${i === active ? styles.activeDot : ""
+              }`}
           />
         ))}
       </div>

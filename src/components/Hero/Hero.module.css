@@ -1,6 +1,7 @@
 .hero {
   position: relative;
-  height: 100vh;              /* 🔑 full viewport */
+  height: 100vh;
+  /* 🔑 full viewport */
   overflow: hidden;
 }
 
@@ -27,11 +28,9 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0.6)
-  );
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0.35),
+      rgba(0, 0, 0, 0.6));
 }
 
 /* Hero content */
@@ -53,6 +52,22 @@
 
   text-align: center;
   color: white;
+}
+
+.content .title,
+.content .subtitle,
+.content .cta {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: slideUpFade 800ms ease forwards;
+}
+
+.content .subtitle {
+  animation-delay: 120ms;
+}
+
+.content .cta {
+  animation-delay: 240ms;
 }
 
 .title {
@@ -117,6 +132,29 @@
 .activeDot {
   background-color: var(--color-accent);
   transform: scale(1.3);
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .content .title,
+  .content .subtitle,
+  .content .cta {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Mobile tuning */

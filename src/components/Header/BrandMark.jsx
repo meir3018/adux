@@ -18,7 +18,7 @@ export default function BrandMark({
                 </span>
             </div>
 
-            <div className="h-[0.5px] w-full bg-audax-red/80 my-1" aria-hidden="true" />
+            <div className="h-[0.5px] w-full bg-audax-gold/60 my-1" aria-hidden="true" />
 
             {/* TAGLINE */}
             <div className={taglineClass}>
