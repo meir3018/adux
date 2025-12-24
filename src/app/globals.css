@@ -9,7 +9,7 @@
   --foreground: #0F2A35;
 
   --primary: #0F2A35;
-  --accent: #C9A063;
+  --accent: #E6C200;
   --surface: #FFFFFF;
 }
 
@@ -21,7 +21,7 @@
   --color-accent: var(--accent);
   --font-sans: Arial, Helvetica, sans-serif;
   --color-surface: var(--surface);
-  --color-audax-gold: #C8A15A;
+  --color-audax-gold: #E6C200;
   --color-audax-charcoal: #1F2A33;
   --color-audax-cream: #F7F5F2;
   --color-audax-red: #F33D3D;

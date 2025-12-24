@@ -54,4 +54,15 @@ export const services = [
             "Independent, unbiased reporting",
         ],
     },
+    {
+        title: "Damage Claims",
+        description:
+            "Independent evaluation and documentation to support construction-related damage claims and resolution.",
+        bullets: [
+            "Condition surveys for baseline records",
+            "Photographic and written documentation",
+            "Expert analysis of observed impacts",
+            "Clear reporting for stakeholders",
+        ],
+    },
 ];

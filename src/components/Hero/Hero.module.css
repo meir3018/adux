@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  /* controls the height of the hero */
   height: 70vh;
+  /* controls the height of her */
   overflow: hidden;
 }
 
