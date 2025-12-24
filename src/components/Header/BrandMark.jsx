@@ -4,7 +4,7 @@ export default function BrandMark({
     scrolled = false,
 }) {
     const [aud, ax] = [companyName.slice(0, 3), companyName.slice(3)];
-    const taglineClass = `flex items-center gap-2 text-[14px] font-bold tracking-wide font-['Verdana'] ${scrolled ? "text-audax-gold/90" : "text-audax-cream"}`;
+    const taglineClass = `flex items-center gap-2 text-[14px] font-bold tracking-wide font-['Verdana'] ${scrolled ? "text-audax-gold/90" : "text-audax-charcoal/80"}`;
 
     return (
         <div className="flex flex-col leading-tight select-none">

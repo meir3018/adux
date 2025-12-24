@@ -72,7 +72,7 @@ export default function Header() {
                   className={`${styles.navLink} ${isActive ? styles.active : ""
                     } ${scrolled
                       ? "text-audax-charcoal hover:text-audax-gold"
-                      : "text-white hover:text-audax-gold"
+                      : "text-audax-charcoal hover:text-audax-gold"
                     }`}
                 >
                   {item.label}
@@ -88,15 +88,15 @@ export default function Header() {
             className="md:hidden flex flex-col gap-[5px]"
           >
             <span
-              className={`h-[2px] w-6 transition ${scrolled ? "bg-audax-charcoal" : "bg-white"
+              className={`h-[2px] w-6 transition ${scrolled ? "bg-audax-charcoal" : "bg-audax-charcoal"
                 }`}
             />
             <span
-              className={`h-[2px] w-6 transition ${scrolled ? "bg-audax-charcoal" : "bg-white"
+              className={`h-[2px] w-6 transition ${scrolled ? "bg-audax-charcoal" : "bg-audax-charcoal"
                 }`}
             />
             <span
-              className={`h-[2px] w-6 transition ${scrolled ? "bg-audax-charcoal" : "bg-white"
+              className={`h-[2px] w-6 transition ${scrolled ? "bg-audax-charcoal" : "bg-audax-charcoal"
                 }`}
             />
           </button>
