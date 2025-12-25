@@ -25,7 +25,6 @@ export default function Header() {
 
   return (
     <>
-      {/* TOP CALL BAR */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-audax-cream text-audax-charcoal">
         <div className="mx-auto max-w-7xl flex justify-end items-center px-6 py-[1.5px] text-xs tracking-wide">
           <a
@@ -45,11 +44,12 @@ export default function Header() {
         style={{ top: "30px", height: "80px" }}
       >
         <div className="h-full flex items-center justify-between px-[2vw] py-[4px]">
-          {/* LEFT: LOGO + BRAND */}
           <div className="flex items-center gap-3">
             {/* ICON */}
             <div className="h-12 w-12 border border-black/10 bg-white flex items-center justify-center">
-              <img src="/logo-ax.svg" alt="AUDAX" className="h-7 w-auto" />
+              <a href="/">
+                <img src="/logo-ax.svg" alt="AUDAX" className="h-7 w-auto" />
+              </a>
             </div>
 
             {/* TEXT BRAND */}
