@@ -1,4 +1,7 @@
-import ServicesGrid from "@/components/Services/Services";
+import ConcreteTestingCard from "@/components/InspectionsServices/ConcreteTestingCard";
+import GeneralInformation from "@/components/InspectionsServices/GeneralInformation";
+import SoilBoringCard from "@/components/InspectionsServices/SoilBoringCard";
+import SpecialInspectionCard from "@/components/InspectionsServices/SpecialInspectionCard";
 
 export const metadata = {
     title: "Inspection Services | Special Inspections, Monitoring & Code Compliance",
@@ -13,20 +16,36 @@ export default function InspectionServicesPage() {
                     "repeating-linear-gradient(135deg, rgba(0,0,0,0.02) 0, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 14px)",
             }}
         >
-            <section className="mx-auto mb-14">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="max-w-3xl">
-                        <h2 className="text-3xl md:text-4xl font-semibold text-neutral-900 mb-4">
-                            Certified Inspections That Keep Projects Moving
-                        </h2>
-                        <p className="text-lg text-neutral-600">
-                            From geotechnical investigations to special inspections and code compliance, our certified professionals help ensure safety, quality, and regulatory approval at every stage of construction.
-                        </p>
+            {/* cards section */}
+            <section className="px-6">
+                <div className="bg-white border border-neutral-200 rounded-xl p-8 shadow-sm w-full">
+                    <div className="grid gap-8">
+                        <SoilBoringCard />
+                        <SpecialInspectionCard />
+                        <ConcreteTestingCard />
                     </div>
                 </div>
             </section>
-            <div className="max-w-7xl mx-auto px-6">
-                <ServicesGrid />
+
+
+            <GeneralInformation />
+
+            <div className="max-w-5xl mx-auto px-6 mt-16">
+                <div className="grid gap-8 md:grid-cols-2 items-center">
+                    <div>
+                        <h3 className="text-xl font-semibold text-[#1c3f8a] mb-3">
+                            Ready to Ensure Compliance?
+                        </h3>
+                        <p className="text-sm text-neutral-600 mb-4">
+                            Let our experts handle your inspection and testing needs for
+                            seamless compliance with NYC regulations.
+                        </p>
+                        <button className="rounded bg-[#3a6ea5] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white">
+                            Contact Us
+                        </button>
+                    </div>
+                    <div className="h-40 rounded-lg bg-gradient-to-br from-neutral-200 to-neutral-100" />
+                </div>
             </div>
         </section>
     );
