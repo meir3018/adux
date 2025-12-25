@@ -1,4 +1,5 @@
 import { phoneNumber, phoneNumberStr } from "@/constants";
+import ContactForm from "@/components/ContactUs/ContactForm";
 
 export const metadata = {
   title: "Contact Us",
@@ -27,7 +28,7 @@ export default function ContactPage() {
 
         <div className="mt-10 rounded-xl border border-neutral-200 bg-white shadow-sm">
           <div className="grid gap-10 lg:grid-cols-[2fr_1fr]">
-            <form className="space-y-6 p-8">
+            <ContactForm>
               <div>
                 <h2 className="text-base font-semibold text-audax-charcoal">
                   Contact Form
@@ -83,19 +84,7 @@ export default function ContactPage() {
                   />
                 </div>
               </div>
-              <div className="flex items-center justify-end gap-4">
-                <p className="text-xs text-neutral-500">
-                  This site is protected by reCAPTCHA and the Google Privacy
-                  Policy and Terms of Service apply.
-                </p>
-                <button
-                  type="submit"
-                  className="rounded-md bg-audax-gold px-6 py-2.5 text-sm font-semibold uppercase tracking-wide text-audax-dark hover:bg-[#c9a031] transition"
-                >
-                  Send
-                </button>
-              </div>
-            </form>
+            </ContactForm>
 
             <aside className="space-y-8 border-t border-neutral-200 p-8 text-sm text-neutral-700 lg:border-l lg:border-t-0">
               <div>
