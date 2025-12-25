@@ -10,25 +10,23 @@ export default function ConcreteTestingCard() {
       </div>
       <div className="bg-neutral-50 px-6 py-6">
         <p className="text-[15px] leading-relaxed text-neutral-700 mb-4">
-          AUDAX-NY Materials Testing Laboratory is nationally accredited by A2LA
-          and registered with the New York City Department of Buildings to
-          provide field sampling and testing for concrete and aggregates. The
-          laboratory operates under strict quality control and meets NYC
-          regulations for construction testing.
+          AUDAX-NY’s A2LA-accredited Materials Testing Laboratory is registered
+          with the New York City Department of Buildings for field sampling and
+          verification of concrete and aggregate materials. Testing follows
+          strict QC procedures and NYC requirements.
         </p>
         <p className="text-[15px] leading-relaxed text-neutral-700 mb-4">
-          Our laboratory provides material testing services and controlled
-          construction monitoring to ensure compliance with project
-          specifications and code requirements.
+          We provide material testing and construction monitoring to confirm
+          compliance with project specifications and applicable codes.
         </p>
         <ul className="text-[15px] leading-relaxed text-neutral-700 space-y-2 mb-5">
-          <li>Concrete Sampling</li>
-          <li>Compression Testing</li>
-          <li>Masonry Sampling & Compression Testing</li>
-          <li>Concrete Mix & Constituents Testing</li>
           <li>Aggregate Testing</li>
-          <li>Soils Proctor Testing</li>
+          <li>Concrete Mix & Constituents Testing</li>
+          <li>Concrete Sampling</li>
           <li>Core Compression Testing for Concrete</li>
+          <li>Compression Testing</li>
+          <li>Soils Proctor Testing</li>
+          <li>Masonry Sampling & Compression Testing</li>
           <li>Core Compression Testing for Asphalt</li>
         </ul>
         <div className="flex flex-wrap items-center gap-3">

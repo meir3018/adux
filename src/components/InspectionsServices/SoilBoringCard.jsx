@@ -10,26 +10,25 @@ export default function SoilBoringCard() {
       </div>
       <div className="bg-neutral-50 px-6 py-6">
         <p className="text-[15px] leading-relaxed text-neutral-700 mb-4">
-          AUDAX-NY Materials Testing Laboratory is nationally accredited by A2LA
-          and registered with the New York City Department of Buildings to
-          provide field sampling and testing for soil type and soil bearing
-          capacity.
+          AUDAX-NY operates an A2LA-accredited laboratory and is registered with
+          the New York City Department of Buildings to deliver field sampling
+          and verification for subsurface conditions and bearing performance.
         </p>
         <p className="text-[15px] leading-relaxed text-neutral-700 mb-4">
-          Our field crew and staff conduct these investigations and provide
-          geotechnical engineering reports that include recommendations for
-          construction. Our equipment is geared for any site condition, with
-          drilling rigs mounted on trucks, track machinery, and tripod rigs.
+          Our teams perform on-site investigations and produce geotechnical
+          reports with construction-focused recommendations. We deploy a range
+          of drilling setups to match site constraints, including truck-mounted,
+          track-based, and tripod rigs.
         </p>
         <ul className="text-[15px] leading-relaxed text-neutral-700 space-y-2 mb-5">
+          <li>Geotechnical Report</li>
           <li>Soil Borings (25 ft, 50 ft, 100 ft)</li>
-          <li>Test Pits</li>
-          <li>Soil Percolation Tests</li>
           <li>Groundwater Monitoring Wells</li>
-          <li>Rock Coring / Rock Quality</li>
+          <li>Test Pits</li>
           <li>Infiltration Test</li>
-          <li>Geo-Technical Report</li>
-          <li>Foundation Recommendation</li>
+          <li>Soil Percolation Tests</li>
+          <li>Foundation Recommendations</li>
+          <li>Rock Coring / Rock Quality</li>
           <li>Underpinning / Building Evaluation Report</li>
         </ul>
         <div className="flex flex-wrap items-center gap-3">
