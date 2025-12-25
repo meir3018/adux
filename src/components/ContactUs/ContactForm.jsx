@@ -29,9 +29,13 @@ export default function ContactForm({ children }) {
         throw new Error("Request failed");
       }
 
-      event.currentTarget.reset();
+      const form = event.currentTarget;
+      if (form && typeof form.reset === "function") {
+        form.reset();
+      }
       setStatus({ type: "success", message: "Message sent successfully." });
     } catch (error) {
+      console.log("!! error ", error)
       setStatus({
         type: "error",
         message: "Unable to send message right now. Please try again.",
@@ -59,9 +63,8 @@ export default function ContactForm({ children }) {
       </div>
       {status.type !== "idle" && (
         <p
-          className={`text-sm ${
-            status.type === "success" ? "text-green-700" : "text-red-600"
-          }`}
+          className={`text-sm ${status.type === "success" ? "text-green-700" : "text-red-600"
+            }`}
         >
           {status.message}
         </p>

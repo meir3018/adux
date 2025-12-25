@@ -1,3 +1,4 @@
+import { NAV_ITEMS } from "../Header/constants";
 export default function Footer() {
   return (
     <footer className="bg-[#2a2a2a] text-[#bdbdbd]">
@@ -5,43 +6,39 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <h3 className="text-xs uppercase tracking-[0.2em] text-[#9a9a9a] mb-6">
-              Concrete Solutions
+              AUDAX-NY
             </h3>
             <ul className="space-y-4 text-sm text-[#bdbdbd]">
-              <li className="flex items-start gap-3">
-                <span aria-hidden="true" className="text-[#bdbdbd]">
-                  📍
-                </span>
-                <span>
-                  150 Engineers Drive
-                  <br />
-                  Hicksville, NY 11801
-                </span>
-              </li>
+
               <li className="flex items-center gap-3">
                 <span aria-hidden="true" className="text-[#bdbdbd]">
                   📞
                 </span>
-                <span>631.393.6520</span>
+                <span> (718) 21-AUDAX</span>
               </li>
               <li className="flex items-center gap-3">
                 <span aria-hidden="true" className="text-[#bdbdbd]">
-                  📠
+                  📧
                 </span>
-                <span>631.393.6522</span>
+                <a
+                  href="mailto:mark@audax-ny.com"
+                  className="hover:text-white transition"
+                >
+                  Mark@audax-ny.com
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <span aria-hidden="true" className="text-[#bdbdbd]">
-                  f
+                  📧
                 </span>
-                <span>Follow Us on Facebook</span>
+                <a
+                  href="mailto:office@audax-ny.com"
+                  className="hover:text-white transition"
+                >
+                  Office@audax-ny.com
+                </a>
               </li>
-              <li className="flex items-center gap-3">
-                <span aria-hidden="true" className="text-[#bdbdbd]">
-                  ◎
-                </span>
-                <span>Follow Us on Instagram</span>
-              </li>
+
             </ul>
           </div>
 
@@ -50,12 +47,7 @@ export default function Footer() {
               Navigation
             </h3>
             <ul className="space-y-3 text-sm text-[#bdbdbd]">
-              <li>Home</li>
-              <li>About</li>
-              <li>Services</li>
-              <li>Projects</li>
-              <li>Blog</li>
-              <li>Contact</li>
+              {NAV_ITEMS.map(({ label, href }) => <li key={label}><a href={href}>{label}</a></li>)}
             </ul>
           </div>
 
@@ -91,7 +83,7 @@ export default function Footer() {
 
       <div className="border-t border-[#333333] bg-[#242424]">
         <div className="max-w-7xl mx-auto px-6 py-6 text-center text-xs text-[#8a8a8a]">
-          © 2021 Concrete Solutions Lab. | Sitemap | Long Island SEO by Active
+          ©2026 AUDAX-NY Lab
           Web Group
         </div>
       </div>
