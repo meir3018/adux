@@ -13,7 +13,7 @@ export default function ServicesGrid() {
                             className="overflow-hidden rounded-lg bg-white shadow-sm dark:divide-white/10 dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10"
                         >
                             <img
-                                src="/service_headers/sh_1.jpg"
+                                src={service.img}
                                 alt=""
                                 aria-hidden="true"
                                 className={styles.cardHeaderImage}
