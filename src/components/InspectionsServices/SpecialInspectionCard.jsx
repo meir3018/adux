@@ -1,3 +1,5 @@
+import { phoneNumber, phoneNumberStr } from "@/constants";
+
 export default function SpecialInspectionCard() {
   return (
     <article className="w-full rounded-xl border border-neutral-200 bg-white shadow-sm overflow-hidden">
@@ -37,9 +39,17 @@ export default function SpecialInspectionCard() {
           <li>Soils - In-Place Density and Fill Placement</li>
           <li>Pile Foundations and Drilled Pier Installation</li>
         </ul>
-        <button className="rounded bg-audax-gold px-4 py-2 text-xs font-semibold uppercase tracking-wide text-audax-dark">
-          Contact Us
-        </button>
+        <div className="flex flex-wrap items-center gap-3">
+          <button className="rounded bg-audax-gold px-4 py-2 text-xs font-semibold uppercase tracking-wide text-audax-dark">
+            Contact Us
+          </button>
+          <a
+            className="text-xs font-semibold uppercase tracking-wide text-audax-charcoal hover:text-audax-gold transition"
+            href={`tel:${phoneNumberStr}`}
+          >
+            Call Us: {phoneNumber}
+          </a>
+        </div>
       </div>
     </article>
   );
