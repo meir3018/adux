@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero/Hero";
-import ServicesGrid from '@/components/Services'
+import ServicesGrid from '@/components/Services/Services'
 
 export default function HomePage() {
   return (
