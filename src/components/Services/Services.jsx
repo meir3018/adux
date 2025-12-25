@@ -10,18 +10,13 @@ export default function ServicesGrid() {
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className="overflow-hidden rounded-lg bg-white shadow-sm dark:divide-white/10 dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10"
+                            className="overflow-hidden rounded-lg bg-white border-2 border-neutral-200 shadow-md dark:divide-white/10 dark:bg-gray-800/50 dark:shadow-none dark:outline dark:-outline-offset-1 dark:outline-white/10"
                         >
-                            <div className={styles.cardHeader}>
-                                <img
-                                    src={service.img}
-                                    alt=""
-                                    aria-hidden="true"
-                                    className={styles.cardHeaderImage}
-                                />
-                            </div>
-                            <div className="px-1 py-5 sm:px-6">
-                                <h3 className="text-xl font-semibold text-neutral-900 mb-3 leading-snug min-h-[3.5rem]">
+                            <div
+                                className={`${styles.cardHeader} px-1 py-5 sm:px-6`}
+                                style={{ backgroundImage: `url(${service.img})` }}
+                            >
+                                <h3 className={`text-xl font-semibold mb-3 leading-snug min-h-[3.5rem] ${styles.cardTitle}`}>
                                     {service.title}
                                 </h3>
                             </div>
