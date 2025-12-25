@@ -1,3 +1,5 @@
+import { ABOUTUS_META } from '@/constants'
+
 export const metadata = {
   title: "About Us",
 };
@@ -17,6 +19,26 @@ export default function AboutPage() {
             reduce risk and provide clear, actionable reporting throughout every
             phase.
           </p>
+        </div>
+
+        <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-2">
+          {ABOUTUS_META.map((item, index) => (
+            <div
+              key={`about-grid-${index}`}
+              className="relative h-28 sm:h-32 md:h-36 lg:h-40 rounded-md overflow-hidden bg-neutral-200"
+            >
+              {item.src ? (
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <div className="h-full w-full" />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/55 to-white/35" />
+            </div>
+          ))}
         </div>
       </div>
     </section>
