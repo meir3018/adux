@@ -8,34 +8,35 @@ const INSPECTION_SERVICE_ITEMS = [
     {
         title: "Services Concrete & Masonry Inspection",
         description:
-            "Comprehensive on-site inspections ensuring compliance and safety.",
+            "On-site inspections verify that concrete and masonry construction complies with approved plans, specifications, and applicable codes. Inspections focus on reinforcement, materials, workmanship, and curing to ensure safety, durability, and long-term performance.",
     },
     {
         title: "Structural Testing",
         description:
-            "Advanced testing methods to guarantee structural integrity.",
+            "Structural testing evaluates in-place materials and assemblies to confirm strength, capacity, and performance. Results support design verification, renovations, forensic evaluations, and code compliance decisions.",
     },
     {
         title: "Drilling & Sampling",
         description:
-            "Precision drilling and subsurface sample analysis for reliable reporting.",
+            "Drilling and sampling provide direct information on subsurface conditions and existing structural elements. Collected samples are analyzed to support geotechnical evaluation, material verification, and reliable reporting.",
     },
     {
         title: "Optical Monitoring",
         description:
-            "High-accuracy optical instruments for real-time structural movement tracking.",
+            "Optical monitoring tracks structural movement, settlement, and deformation with high precision. Data helps identify trends early and supports informed decisions during construction or adjacent work.",
     },
     {
         title: "Vibration Monitoring",
         description:
-            "Continuous vibration analysis for construction and infrastructure safety.",
+            "Vibration monitoring measures construction-induced ground and structural vibrations in real time. Monitoring helps protect nearby structures and provides defensible data for compliance and claims resolution.",
     },
     {
         title: "Subsurface Investigation and Infrastructure Exploration",
         description:
-            "Comprehensive assessment of underground conditions for design and planning.",
+            "Subsurface investigations assess soil, groundwater, and underground infrastructure conditions. Findings support design planning, risk mitigation, and constructability decisions.",
     },
 ];
+
 
 export const metadata = {
     title: "Inspections Services | Special Inspections, Monitoring & Code Compliance",
