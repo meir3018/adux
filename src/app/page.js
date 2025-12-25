@@ -2,6 +2,11 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero/Hero";
 import ServicesGrid from '@/components/Services/Services'
 
+export const metadata = {
+  title: "Engineering Inspection & Compliance Services | Audax NY",
+};
+
+
 export default function HomePage() {
   return (
     <>
