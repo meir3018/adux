@@ -2,7 +2,7 @@ import { phoneNumber, phoneNumberStr } from "@/constants";
 
 export default function SpecialInspectionCard() {
   return (
-    <article className="w-full rounded-xl border border-neutral-200 bg-white shadow-sm overflow-hidden">
+    <article className="w-full rounded-xl border border-neutral-200 bg-white shadow-sm overflow-hidden font-['Georgia']">
       <div className="bg-neutral-100 px-6 py-4">
         <h3 className="text-lg font-semibold text-audax-charcoal">
           AUDAX-NY - NYCDOB - Special Inspection (TR1, TR5, TR5H & TR8)

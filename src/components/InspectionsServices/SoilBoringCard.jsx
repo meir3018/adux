@@ -2,7 +2,7 @@ import { phoneNumber, phoneNumberStr } from "@/constants";
 
 export default function SoilBoringCard() {
   return (
-    <article className="w-full rounded-xl border border-neutral-200 bg-white shadow-sm overflow-hidden">
+    <article className="w-full rounded-xl border border-neutral-200 bg-white shadow-sm overflow-hidden font-['Georgia']">
       <div className="bg-neutral-100 px-6 py-4">
         <h3 className="text-lg font-semibold text-audax-charcoal">
           AUDAX-NY - NYCDOB - Soil Boring & Test Pit (TR4)
