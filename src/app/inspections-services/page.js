@@ -5,7 +5,7 @@ import SpecialInspectionCard from "@/components/InspectionsServices/SpecialInspe
 import EnsureComplianceCTA from '@/components/InspectionsServices/EnsureComplianceCTA'
 
 export const metadata = {
-    title: "Inspection Services | Special Inspections, Monitoring & Code Compliance",
+    title: "Inspections Services | Special Inspections, Monitoring & Code Compliance",
 };
 
 export default function InspectionServicesPage() {
@@ -20,7 +20,7 @@ export default function InspectionServicesPage() {
             <div className="max-w-8xl mx-auto px-4 mb-10">
                 <div className="max-w-3xl">
                     <h1 className="text-3xl md:text-4xl font-semibold text-audax-charcoal mb-4">
-                        Inspection Services
+                        Inspections Services
                     </h1>
                     <p className="text-lg text-neutral-700">
                         Certified inspections, testing, and compliance oversight for

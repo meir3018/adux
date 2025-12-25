@@ -2,7 +2,7 @@ export const HERO_SLIDES = [
   {
     id: 0,
     image: "/hero/hero-1.jpg",
-    title: "Trusted Building Inspection Services",
+    title: "Trusted Building Inspections Services",
     subtitle: "SUPERIOR QUALITY AND SERVICE IN ALL THAT WE DO",
     cta: { label: "View Services", href: "#services" },
   },

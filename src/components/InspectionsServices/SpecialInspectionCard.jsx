@@ -17,7 +17,7 @@ export default function SpecialInspectionCard() {
           project aligned with required approvals.
         </p>
         <p className="text-[15px] leading-relaxed text-neutral-700 mb-4">
-          Special Inspection services are performed at the request of the
+          Special Inspections services are performed at the request of the
           owner, architect, or engineer of record. Our team supports inspection
           needs across foundations, superstructures, mechanical and electrical
           systems, fireproofing, structural steel, welding, concrete, masonry,

@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Audax",
-  description: "Engineering & Inspection Services",
+  description: "Engineering & Inspections Services",
 };
 
 export default function RootLayout({ children }) {
