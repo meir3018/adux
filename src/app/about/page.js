@@ -6,8 +6,15 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <section className="bg-background py-24 mt-16">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      className="py-24 mt-16"
+      style={{
+        backgroundColor: "var(--audax-light-neutral, #F7F4EF)",
+        backgroundImage:
+          "repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0, rgba(0,0,0,0.02) 1px, transparent 1px, transparent 16px)",
+      }}
+    >
+      <div className="max-w-8xl mx-auto px-4">
         <div className="max-w-3xl">
           <h1 className="text-3xl md:text-4xl font-semibold text-neutral-900 mb-4">
             About Audax NY
