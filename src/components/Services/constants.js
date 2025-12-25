@@ -15,7 +15,7 @@ export const services = [
         title: "Construction Monitoring & Special Inspections",
         description:
             "On-site oversight throughout construction to ensure quality, safety, and regulatory compliance at every phase.",
-        img: "/service_headers/sh_1.jpg",
+        img: "/service_headers/sh_2.webp",
         bullets: [
             "End-to-end construction monitoring",
             "NYC DOB special & progress inspections",
@@ -27,7 +27,7 @@ export const services = [
         title: "Regulatory & Code Compliance",
         description:
             "Ensuring your project meets all applicable local, state, and industry codes without delays or surprises.",
-        img: "/service_headers/sh_1.jpg",
+        img: "/service_headers/sh_3.jpg",
         bullets: [
             "Regulatory inspections & documentation",
             "Energy code compliance testing",
@@ -39,7 +39,7 @@ export const services = [
         title: "Laboratory Testing & Materials Analysis",
         description:
             "Accredited laboratory testing to verify material strength, performance, and long-term durability.",
-        img: "/service_headers/sh_1.jpg",
+        img: "/service_headers/sh_4.webp",
         bullets: [
             "Concrete testing & analysis",
             "Material strength and quality testing",
@@ -51,7 +51,7 @@ export const services = [
         title: "Surveying & Damage Assessment",
         description:
             "Accurate documentation of site conditions before, during, and after construction — backed by expert analysis.",
-        img: "/service_headers/sh_1.jpg",
+        img: "/service_headers/sh_5.jpg",
         bullets: [
             "Pre- and post-construction surveys",
             "Existing conditions documentation",
@@ -63,7 +63,7 @@ export const services = [
         title: "Damage Claims",
         description:
             "Independent evaluation and documentation to support construction-related damage claims and resolution.",
-        img: "/service_headers/sh_1.jpg",
+        img: "/service_headers/sh_6.jpg",
         bullets: [
             "Condition surveys for baseline records",
             "Photographic and written documentation",
