@@ -10,6 +10,7 @@ import { phoneNumber, phoneNumberStr } from '@/constants'
 
 export default function Header() {
   const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -19,6 +20,8 @@ export default function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const showSolidHeader = scrolled || !isHome;
 
   return (
     <>
@@ -36,7 +39,7 @@ export default function Header() {
 
       {/* MAIN HEADER */}
       < header
-        className={`fixed left-0 right-0 z-40 transition-all duration-300 ease-smooth ${scrolled ? "bg-white/90 backdrop-blur shadow-header" : "bg-transparent"
+        className={`fixed left-0 right-0 z-40 transition-all duration-300 ease-smooth ${showSolidHeader ? "bg-white/90 backdrop-blur shadow-header" : "bg-transparent"
           }`
         }
         style={{ top: "30px", height: "80px" }}
@@ -53,7 +56,7 @@ export default function Header() {
             <BrandMark
               companyName="AUDAX"
               tagline={["Laboratory", "Testing", "Inspection"]}
-              scrolled={scrolled}
+              scrolled={showSolidHeader}
             />
           </div>
 
@@ -70,7 +73,7 @@ export default function Header() {
                   key={item.href}
                   href={item.href}
                   className={`${styles.navLink} ${isActive ? styles.active : ""
-                    } ${scrolled
+                    } ${showSolidHeader
                       ? "text-audax-charcoal hover:text-audax-gold"
                       : "text-audax-charcoal hover:text-audax-gold"
                     }`}
@@ -88,15 +91,15 @@ export default function Header() {
             className="md:hidden flex flex-col gap-[5px]"
           >
             <span
-              className={`h-[2px] w-6 transition ${scrolled ? "bg-audax-charcoal" : "bg-audax-charcoal"
+              className={`h-[2px] w-6 transition ${showSolidHeader ? "bg-audax-charcoal" : "bg-audax-charcoal"
                 }`}
             />
             <span
-              className={`h-[2px] w-6 transition ${scrolled ? "bg-audax-charcoal" : "bg-audax-charcoal"
+              className={`h-[2px] w-6 transition ${showSolidHeader ? "bg-audax-charcoal" : "bg-audax-charcoal"
                 }`}
             />
             <span
-              className={`h-[2px] w-6 transition ${scrolled ? "bg-audax-charcoal" : "bg-audax-charcoal"
+              className={`h-[2px] w-6 transition ${showSolidHeader ? "bg-audax-charcoal" : "bg-audax-charcoal"
                 }`}
             />
           </button>
