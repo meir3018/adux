@@ -17,7 +17,7 @@ export default function AboutPage() {
       <div className="max-w-8xl mx-auto px-4">
         <div className="max-w-3xl">
           <h1 className="text-3xl md:text-4xl font-semibold text-neutral-900 mb-4">
-            About Audax NY
+            About AUDAX
           </h1>
           <p className="text-lg text-neutral-600">
             Audax NY delivers inspection, testing, and compliance services that
