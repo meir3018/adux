@@ -83,8 +83,7 @@ export default function Footer() {
 
       <div className="border-t border-[#333333] bg-[#242424]">
         <div className="max-w-7xl mx-auto px-6 py-6 text-center text-xs text-[#8a8a8a]">
-          ©2026 AUDAX-NY Lab
-          Web Group
+          ©2026 Audax - All Rights Reserved.
         </div>
       </div>
     </footer>
