@@ -88,7 +88,7 @@ export default function CareersPage() {
           </h1>
           <p className="text-lg text-neutral-700">
             Join AUDAX-NY and help deliver trusted inspection, testing, and
-            compliance services across New York City.
+            compliance services.
           </p>
         </div>
 
