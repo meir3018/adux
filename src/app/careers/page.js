@@ -1,14 +1,15 @@
+import CareersSection from "@/components/Careers/CareersSection";
+
 export const metadata = {
   title: "Careers",
 };
-
-const PHONE_NUMBER = "(718) 21-AUDAX";
-const PHONE_NUMBER_STR = "7182128329";
 
 const CAREER_CARDS = [
   {
     title: "Construction Inspector",
     image: "/careers/construction-inspector.jpg",
+    phoneNumber: "(718) 21-AUDAX",
+    phoneNumberStr: "7182128329",
     bullets: [
       "Review and interpret project drawings and specifications to verify contractor compliance.",
       "Conduct on-site observation, inspection, and evaluation of construction activities.",
@@ -23,6 +24,8 @@ const CAREER_CARDS = [
   {
     title: "Masonry Field Inspector",
     image: "/careers/masonry-field-inspector.webp",
+    phoneNumber: "(718) 21-AUDAX",
+    phoneNumberStr: "7182128329",
     bullets: [
       "Perform on-site masonry inspections such as grout and mortar sampling, reinforcement verification, and anchor bolt observations.",
       "Draft detailed and accurate field reports for submission to project managers.",
@@ -36,6 +39,8 @@ const CAREER_CARDS = [
   {
     title: "Special Inspector",
     image: "/careers/special-inspector.webp",
+    phoneNumber: "(718) 21-AUDAX",
+    phoneNumberStr: "7182128329",
     bullets: [
       "Perform code-compliant inspections per NYC Building Code Chapter 17.",
       "Maintain accurate reports and communicate effectively with clients.",
@@ -48,6 +53,8 @@ const CAREER_CARDS = [
   {
     title: "ICC Mechanical Special Inspector",
     image: "/careers/icc-mechanical-inspector.webp",
+    phoneNumber: "(718) 21-AUDAX",
+    phoneNumberStr: "7182128329",
     bullets: [
       "Conduct field inspections of mechanical systems to ensure proper installation and functionality.",
       "Verify compliance with applicable building codes, standards, and approved construction documents.",
@@ -60,6 +67,8 @@ const CAREER_CARDS = [
   {
     title: "AWS Welding Inspector",
     image: "/careers/aws-welding-inspector.webp",
+    phoneNumber: "(718) 21-AUDAX",
+    phoneNumberStr: "7182128329",
     bullets: [
       "Perform welding inspections in accordance with AWS D1.1 code standards.",
       "Prepare detailed daily field reports and clearly communicate any deficiencies to project managers, contractors, and clients.",
@@ -92,53 +101,7 @@ export default function CareersPage() {
           </p>
         </div>
 
-        <div className="bg-white border border-neutral-200 rounded-xl p-8 shadow-sm w-full">
-          <div className="grid gap-8 md:grid-cols-3">
-            {CAREER_CARDS.map((role) => (
-              <article
-                key={role.title}
-                className="rounded-lg border border-neutral-200 bg-white overflow-hidden flex flex-col"
-              >
-                <div className="bg-neutral-100">
-                  <div className="h-28 relative">
-                    <img
-                      src={role.image}
-                      alt={role.title}
-                      className="h-full w-full object-cover grayscale"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/55 to-white/35" />
-                    <h3 className="absolute left-4 top-1/2 -translate-y-1/2 text-base font-semibold text-audax-charcoal">
-                      {role.title}
-                    </h3>
-                  </div>
-                </div>
-                <div className="bg-neutral-50 px-4 py-6 flex-1 flex flex-col">
-                  <ul className="text-[15px] text-neutral-600 space-y-2">
-                    {role.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2">
-                        <span className="mt-1 h-2 w-2 rounded-full bg-audax-red shrink-0" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="bg-neutral-100 px-4 py-3 border-t border-neutral-200 flex justify-end">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <a
-                      className="text-xs font-semibold uppercase tracking-wide text-audax-charcoal hover:text-audax-gold transition"
-                      href={`tel:${PHONE_NUMBER_STR}`}
-                    >
-                      Call Us: {PHONE_NUMBER}
-                    </a>
-                    <button className="rounded bg-audax-gold px-4 py-2 text-xs font-semibold uppercase tracking-wide text-audax-dark">
-                      Apply
-                    </button>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
+        <CareersSection roles={CAREER_CARDS} />
       </div>
     </section>
   );
