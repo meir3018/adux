@@ -6,7 +6,7 @@ import EnsureComplianceCTA from '@/components/InspectionsServices/EnsureComplian
 
 const INSPECTION_SERVICE_ITEMS = [
     {
-        title: "Services Concrete & Masonry Inspection",
+        title: "NYC DOB Special Inspections (TR1/TR8) & Testing | Audax NY",
         description:
             "On-site inspections verify that concrete and masonry construction complies with approved plans, specifications, and applicable codes. Inspections focus on reinforcement, materials, workmanship, and curing to ensure safety, durability, and long-term performance.",
     },

@@ -1,7 +1,7 @@
 import CareersSection from "@/components/Careers/CareersSection";
 
 export const metadata = {
-  title: "Careers",
+  title: "Careers: Special Inspectors & Field Inspectors (NYC) | Audax NY",
 };
 
 const CAREER_CARDS = [

@@ -4,7 +4,7 @@ import Projects from "@/components/Projects/Projects";
 import ServicesGrid from "@/components/Services/Services";
 
 export const metadata = {
-  title: "Engineering Inspection & Compliance Services | Audax NY",
+  title: "Special Inspections, Monitoring & Testing | Audax NY",
 };
 
 

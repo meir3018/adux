@@ -1,7 +1,7 @@
 import { ABOUTUS_META } from '@/constants'
 
 export const metadata = {
-  title: "About Us",
+  title: "About Audax NY | Inspection, Monitoring & Compliance (NYC)",
 };
 
 export default function AboutPage() {

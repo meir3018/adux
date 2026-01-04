@@ -1,7 +1,7 @@
 import EnsureComplianceCTA from "@/components/InspectionsServices/EnsureComplianceCTA";
 
 export const metadata = {
-  title: "Monitoring | Inspection & Compliance Services",
+  title: "Construction Monitoring & Vibration Monitoring (NYC) | Audax NY",
 };
 
 export default function MonitoringPage() {

@@ -2,7 +2,7 @@ import { phoneNumber, phoneNumberStr } from "@/constants";
 import ContactForm from "@/components/ContactUs/ContactForm";
 
 export const metadata = {
-  title: "Contact Us",
+  title: "Contact Audax NY | NYC Special Inspections & Monitoring Services",
 };
 
 export default function ContactPage() {

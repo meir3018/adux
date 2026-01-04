@@ -1,7 +1,7 @@
 import Projects from "@/components/Projects/Projects";
 
 export const metadata = {
-  title: "Projects",
+  title: "NYC Inspection & Monitoring Project Highlights | Audax NY",
 };
 
 export default function ProjectsPage() {
