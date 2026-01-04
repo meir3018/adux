@@ -131,6 +131,16 @@ function ApplyDrawer({ open, onClose, jobTitle }) {
 
     setSubmitting(true);
     try {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "careers_apply", {
+          event_category: "careers",
+          event_label: "attempt",
+          job_title: jobTitle,
+          resume_type: resume?.type || "unknown",
+          message_length: message.trim().length,
+        });
+      }
+
       const response = await fetch("/careers/apply", {
         method: "POST",
         body: payload,
@@ -147,8 +157,25 @@ function ApplyDrawer({ open, onClose, jobTitle }) {
         message:
           "Application submitted successfully. Our team will contact you.",
       });
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "careers_apply", {
+          event_category: "careers",
+          event_label: "success",
+          job_title: jobTitle,
+          resume_type: resume?.type || "unknown",
+          message_length: message.trim().length,
+        });
+      }
       setRecaptchaToken("");
     } catch (error) {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "careers_apply", {
+          event_category: "careers",
+          event_label: "error",
+          job_title: jobTitle,
+          error_type: "request_failed",
+        });
+      }
       setStatus({
         type: "error",
         message: error?.message || "Unable to submit application.",

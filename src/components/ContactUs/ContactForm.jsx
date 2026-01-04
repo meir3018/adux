@@ -105,14 +105,27 @@ export default function ContactForm({ children }) {
     }
 
     const formData = new FormData(form);
+    const name = formData.get("name")?.toString().trim() || "";
+    const email = formData.get("email")?.toString().trim() || "";
+    const message = formData.get("message")?.toString().trim() || "";
     const payload = {
-      name: formData.get("name")?.toString().trim(),
-      email: formData.get("email")?.toString().trim(),
-      message: formData.get("message")?.toString().trim(),
+      name,
+      email,
+      message,
       recaptchaToken: token,
     };
 
     try {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "contact_submit", {
+          event_category: "contact",
+          event_label: "attempt",
+          has_name: Boolean(name),
+          has_email: Boolean(email),
+          message_length: message.length,
+        });
+      }
+
       const response = await fetch("/contact/email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -126,9 +139,23 @@ export default function ContactForm({ children }) {
       if (typeof form.reset === "function") {
         form.reset();
       }
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "contact_submit", {
+          event_category: "contact",
+          event_label: "success",
+          message_length: message.length,
+        });
+      }
       setRecaptchaToken("");
       setStatus({ type: "success", message: "Message sent successfully." });
     } catch (error) {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "contact_submit", {
+          event_category: "contact",
+          event_label: "error",
+          error_type: "request_failed",
+        });
+      }
       console.log("!! error ", error)
       setStatus({
         type: "error",
