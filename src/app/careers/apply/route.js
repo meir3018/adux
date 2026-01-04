@@ -20,6 +20,26 @@ const isAllowedResume = (file) => {
   return ALLOWED_EXTENSIONS.some((ext) => lowerName.endsWith(ext));
 };
 
+const verifyRecaptcha = async (token) => {
+  if (!process.env.RECAPTCHA_SECRET_KEY) {
+    return { ok: false, error: "reCAPTCHA not configured." };
+  }
+  const response = await fetch(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        secret: process.env.RECAPTCHA_SECRET_KEY,
+        response: token,
+      }),
+    }
+  );
+
+  const data = await response.json();
+  return { ok: Boolean(data?.success), data };
+};
+
 export async function POST(request) {
   try {
     const formData = await request.formData();
@@ -29,8 +49,9 @@ export async function POST(request) {
     const phone = formData.get("phone")?.toString().trim();
     const message = formData.get("message")?.toString().trim();
     const resume = formData.get("resume");
+    const recaptchaToken = formData.get("recaptchaToken")?.toString().trim();
 
-    if (!jobTitle || !name || !email || !phone || !resume) {
+    if (!jobTitle || !name || !email || !phone || !resume || !recaptchaToken) {
       return new Response(
         JSON.stringify({
           ok: false,
@@ -46,6 +67,25 @@ export async function POST(request) {
           ok: false,
           error: "Resume must be a PDF or DOC file.",
         }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    const recaptchaResult = await verifyRecaptcha(recaptchaToken);
+    if (!recaptchaResult.ok) {
+      return new Response(
+        JSON.stringify({ ok: false, error: "reCAPTCHA verification failed." }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+    const action = recaptchaResult.data?.action;
+    const score =
+      typeof recaptchaResult.data?.score === "number"
+        ? recaptchaResult.data.score
+        : 0;
+    if (action !== "careers_apply" || score < 0.5) {
+      return new Response(
+        JSON.stringify({ ok: false, error: "reCAPTCHA score too low." }),
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
@@ -68,8 +108,8 @@ export async function POST(request) {
     const to =
       process.env.CAREERS_TO_EMAIL ||
       process.env.CONTACT_TO_EMAIL ||
-      "greg.bluvshteyn@gmail.com";
-    const subject = `New application for ${jobTitle} from ${name}`;
+      "Mliebny@gmail.com";
+    const subject = `Audax-ny: New application for ${jobTitle} from ${name}`;
 
     await resend.emails.send({
       from,
@@ -91,13 +131,12 @@ export async function POST(request) {
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
-        ${
-          message
-            ? `<p><strong>Message:</strong></p><p>${message.replace(
-                /\n/g,
-                "<br />"
-              )}</p>`
-            : ""
+        ${message
+          ? `<p><strong>Message:</strong></p><p>${message.replace(
+            /\n/g,
+            "<br />"
+          )}</p>`
+          : ""
         }
       `,
       attachments: [

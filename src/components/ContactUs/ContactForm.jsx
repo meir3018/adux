@@ -1,21 +1,115 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ContactForm({ children }) {
   const [status, setStatus] = useState({ type: "idle", message: "" });
   const [submitting, setSubmitting] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const [recaptchaReady, setRecaptchaReady] = useState(false);
+  const siteKey =
+    process.env.NEXT_PUBLIC_RECAPTCH_CLIENT_KEY ||
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+  useEffect(() => {
+    if (!siteKey) {
+      return undefined;
+    }
+
+    const scriptId = "recaptcha-script";
+    let script = document.getElementById(scriptId);
+
+    if (!script) {
+      script = document.createElement("script");
+      script.id = scriptId;
+      script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
+      script.async = true;
+      script.defer = true;
+      script.onload = () => setRecaptchaReady(true);
+      document.body.appendChild(script);
+    } else {
+      setRecaptchaReady(Boolean(window.grecaptcha));
+    }
+
+    return () => {
+      if (script) {
+        script.onload = null;
+      }
+    };
+  }, [siteKey]);
 
   const onSubmit = async (event) => {
     event.preventDefault();
     setSubmitting(true);
     setStatus({ type: "idle", message: "" });
 
-    const formData = new FormData(event.currentTarget);
+    if (!siteKey) {
+      setStatus({
+        type: "error",
+        message: "reCAPTCHA is not configured. Please try again later.",
+      });
+      setSubmitting(false);
+      return;
+    }
+
+    if (!window.grecaptcha || !recaptchaReady) {
+      setStatus({
+        type: "error",
+        message: "reCAPTCHA is not ready. Please try again.",
+      });
+      setSubmitting(false);
+      return;
+    }
+
+    let token = recaptchaToken;
+    if (!token) {
+      try {
+        await new Promise((resolve) => window.grecaptcha.ready(resolve));
+        token = await window.grecaptcha.execute(siteKey, {
+          action: "contact_form",
+        });
+        setRecaptchaToken(token);
+      } catch (error) {
+        setStatus({
+          type: "error",
+          message: "Unable to verify reCAPTCHA. Please try again.",
+        });
+        setSubmitting(false);
+        return;
+      }
+    }
+
+    if (!token) {
+      setStatus({
+        type: "error",
+        message: "Unable to verify reCAPTCHA. Please try again.",
+      });
+      setSubmitting(false);
+      return;
+    }
+
+    const form =
+      event.currentTarget instanceof HTMLFormElement
+        ? event.currentTarget
+        : event.target instanceof HTMLElement
+          ? event.target.closest("form")
+          : null;
+
+    if (!form) {
+      setStatus({
+        type: "error",
+        message: "Unable to submit the form right now. Please try again.",
+      });
+      setSubmitting(false);
+      return;
+    }
+
+    const formData = new FormData(form);
     const payload = {
       name: formData.get("name")?.toString().trim(),
       email: formData.get("email")?.toString().trim(),
       message: formData.get("message")?.toString().trim(),
+      recaptchaToken: token,
     };
 
     try {
@@ -29,10 +123,10 @@ export default function ContactForm({ children }) {
         throw new Error("Request failed");
       }
 
-      const form = event.currentTarget;
-      if (form && typeof form.reset === "function") {
+      if (typeof form.reset === "function") {
         form.reset();
       }
+      setRecaptchaToken("");
       setStatus({ type: "success", message: "Message sent successfully." });
     } catch (error) {
       console.log("!! error ", error)
@@ -48,6 +142,11 @@ export default function ContactForm({ children }) {
   return (
     <form className="space-y-6 p-8" onSubmit={onSubmit}>
       {children}
+      {!siteKey && (
+        <p className="text-xs text-neutral-500">
+          reCAPTCHA is unavailable at the moment.
+        </p>
+      )}
       <div className="flex items-center justify-end gap-4">
         <p className="text-xs text-neutral-500">
           This site is protected by reCAPTCHA and the Google Privacy Policy and

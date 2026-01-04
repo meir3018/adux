@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const ALLOWED_MIME_TYPES = [
   "application/pdf",
@@ -16,6 +16,11 @@ function ApplyDrawer({ open, onClose, jobTitle }) {
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [status, setStatus] = useState({ type: "idle", message: "" });
+  const [recaptchaToken, setRecaptchaToken] = useState("");
+  const [recaptchaReady, setRecaptchaReady] = useState(false);
+  const siteKey =
+    process.env.NEXT_PUBLIC_RECAPTCH_CLIENT_KEY ||
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   const resetStatus = () => setStatus({ type: "idle", message: "" });
 
@@ -35,6 +40,33 @@ function ApplyDrawer({ open, onClose, jobTitle }) {
     return "";
   };
 
+  useEffect(() => {
+    if (!siteKey) {
+      return undefined;
+    }
+
+    const scriptId = "recaptcha-script";
+    let script = document.getElementById(scriptId);
+
+    if (!script) {
+      script = document.createElement("script");
+      script.id = scriptId;
+      script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
+      script.async = true;
+      script.defer = true;
+      script.onload = () => setRecaptchaReady(true);
+      document.body.appendChild(script);
+    } else {
+      setRecaptchaReady(Boolean(window.grecaptcha));
+    }
+
+    return () => {
+      if (script) {
+        script.onload = null;
+      }
+    };
+  }, [siteKey]);
+
   const onSubmit = async (event) => {
     event.preventDefault();
     resetStatus();
@@ -45,12 +77,54 @@ function ApplyDrawer({ open, onClose, jobTitle }) {
       return;
     }
 
+    if (!siteKey) {
+      setStatus({
+        type: "error",
+        message: "reCAPTCHA is not configured. Please try again later.",
+      });
+      return;
+    }
+
+    if (!window.grecaptcha || !recaptchaReady) {
+      setStatus({
+        type: "error",
+        message: "reCAPTCHA is not ready. Please try again.",
+      });
+      return;
+    }
+
+    let token = recaptchaToken;
+    if (!token) {
+      try {
+        await new Promise((resolve) => window.grecaptcha.ready(resolve));
+        token = await window.grecaptcha.execute(siteKey, {
+          action: "careers_apply",
+        });
+        setRecaptchaToken(token);
+      } catch (error) {
+        setStatus({
+          type: "error",
+          message: "Unable to verify reCAPTCHA. Please try again.",
+        });
+        return;
+      }
+    }
+
+    if (!token) {
+      setStatus({
+        type: "error",
+        message: "Unable to verify reCAPTCHA. Please try again.",
+      });
+      return;
+    }
+
     const payload = new FormData();
     payload.append("jobTitle", jobTitle);
     payload.append("name", name.trim());
     payload.append("email", email.trim());
     payload.append("phone", phone.trim());
     payload.append("resume", resume);
+    payload.append("recaptchaToken", token);
     if (message.trim()) {
       payload.append("message", message.trim());
     }
@@ -73,6 +147,7 @@ function ApplyDrawer({ open, onClose, jobTitle }) {
         message:
           "Application submitted successfully. Our team will contact you.",
       });
+      setRecaptchaToken("");
     } catch (error) {
       setStatus({
         type: "error",
