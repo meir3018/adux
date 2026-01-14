@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { NAV_ITEMS } from "./constants";
 import styles from "./Header.module.css";
 import BrandMark from "./BrandMark";
-import { phoneNumber, phoneNumberStr } from '@/constants'
+
 
 export default function Header() {
   const pathname = usePathname();
@@ -25,23 +25,12 @@ export default function Header() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 right-0 z-50 bg-audax-cream text-audax-charcoal">
-        <div className="mx-auto max-w-7xl flex justify-end items-center px-6 py-[1.5px] text-xs tracking-wide">
-          <a
-            href={`tel:${phoneNumberStr}`}
-            className="flex items-center gap-2 hover:text-audax-gold transition"
-          >
-            📞 <span>Call us: {phoneNumber}</span>
-          </a>
-        </div>
-      </div >
-
       {/* MAIN HEADER */}
-      < header
+      <header
         className={`fixed left-0 right-0 z-40 transition-all duration-300 ease-smooth ${showSolidHeader ? "bg-white/90 backdrop-blur shadow-header" : "bg-transparent"
           }`
         }
-        style={{ top: "30px", height: "80px" }}
+        style={{ top: "0", height: "80px" }}
       >
         <div className="h-full flex items-center justify-between px-[2vw] py-[4px]">
           <div className="flex items-center gap-3">
@@ -124,7 +113,7 @@ export default function Header() {
             </div>
           )
         }
-      </header >
+      </header>
     </>
   );
 }

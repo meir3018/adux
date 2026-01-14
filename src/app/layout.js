@@ -3,7 +3,6 @@ import Script from "next/script";
 import "./globals.css";
 
 import Header from "@/components/Header/Header";
-import TopCallBar from "@/components/Header/TopCallBar";
 import Footer from "@/components/Footer";
 import AnalyticsEvents from "@/components/Analytics/AnalyticsEvents";
 
@@ -43,7 +42,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TopCallBar />
         <Header />
 
         <main>{children}</main>
