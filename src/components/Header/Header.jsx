@@ -12,24 +12,44 @@ export default function Header() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
+  const [scrollRatio, setScrollRatio] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80);
+      const doc = document.documentElement;
+      const maxScroll = doc.scrollHeight - window.innerHeight;
+      const ratio = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      setScrollRatio(ratio);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const showSolidHeader = scrolled || !isHome;
+  const stepOne = scrollRatio >= 0.05;
+  const stepTwo = scrollRatio >= 0.1;
+  const headerInsetClass = stepTwo
+    ? "left-[4%] right-[4%]"
+    : stepOne
+      ? "left-[2%] right-[2%]"
+      : "left-0 right-0";
+  const headerRoundedClass = stepOne ? "rounded-full shadow-header" : "";
+  const headerTopMarginClass = stepTwo ? "mt-4" : stepOne ? "mt-2" : "mt-0";
+  const headerBgClass = showSolidHeader
+    ? stepTwo
+      ? "bg-white"
+      : "bg-white/90 backdrop-blur"
+    : "bg-transparent";
 
   return (
     <>
       {/* MAIN HEADER */}
       <header
-        className={`fixed left-0 right-0 z-40 transition-all duration-300 ease-smooth ${showSolidHeader ? "bg-white/90 backdrop-blur shadow-header" : "bg-transparent"
-          }`
-        }
+        className={`fixed z-40 transition-all duration-300 ease-smooth ${headerInsetClass} ${headerRoundedClass} ${headerTopMarginClass} ${headerBgClass}`}
+        data-parallax={stepTwo ? "solid" : stepOne ? "rounded" : "base"}
         style={{ top: "0", height: "80px" }}
       >
         <div className="h-full flex items-center justify-between px-[2vw] py-[4px]">
