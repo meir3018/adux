@@ -19,7 +19,7 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-accent: var(--accent);
-  --font-sans: Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --color-surface: var(--surface);
   --color-audax-gold: #E6C200;
   --color-audax-charcoal: #1F2A33;
