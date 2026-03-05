@@ -9,3 +9,5 @@ export const ABOUTUS_META = [
     { title: "Document Review", src: "/about_us/au_5.webp" },
     { title: "Material Testing", src: "/about_us/au_6.webp" },
 ]
+
+export const CONTACT_EMAIL = process.env.CONTACT_EMAIL || 'info@audaxny.com';

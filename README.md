@@ -11,3 +11,7 @@ https://www.google.com/recaptcha/admin/create?pli=1
 # Good template
 
 https://terravia.webflow.io/
+
+# Google Seaerch console
+
+https://search.google.com/search-console?resource_id=sc-domain%3Aaudax-ny.com
