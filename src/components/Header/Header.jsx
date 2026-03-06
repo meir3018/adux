@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NAV_ITEMS } from "./constants";
 import styles from "./Header.module.css";
 import BrandMark from "./BrandMark";
+import audaxLogoFull from "../../../public/audax-logo-full.png";
 
 
 export default function Header() {
@@ -55,18 +57,25 @@ export default function Header() {
         <div className="h-full flex items-center justify-between px-[2vw] py-[4px]">
           <div className="flex items-center gap-3">
             {/* ICON */}
-            <div className="h-12 w-12 border border-black/10 bg-white flex items-center justify-center">
-              <a href="/">
-                <img src="/logo-ax.svg" alt="AUDAX" className="h-7 w-auto" />
-              </a>
+            <div className="h-12 w-[500px] max-w-[60vw] flex items-center">
+              <Link href="/" aria-label="AUDAX Home">
+                <Image
+                  src={audaxLogoFull}
+                  alt="AUDAX"
+                  className="h-12 w-auto object-contain"
+                  width={500}
+                  height={48}
+                  priority
+                />
+              </Link>
             </div>
 
             {/* TEXT BRAND */}
-            <BrandMark
+            {/* <BrandMark
               companyName="AUDAX"
               tagline={["Laboratory", "Testing", "Inspection"]}
               scrolled={showSolidHeader}
-            />
+            /> */}
           </div>
 
           {/* DESKTOP NAV */}
