@@ -59,14 +59,18 @@ export default function Header() {
             {/* ICON */}
             <div className="h-12 w-[500px] max-w-[60vw] flex items-center">
               <Link href="/" aria-label="AUDAX Home">
-                <Image
-                  src={audaxLogoFull}
-                  alt="AUDAX"
-                  className="h-12 w-auto object-contain"
-                  width={500}
-                  height={48}
-                  priority
-                />
+                <span
+                  className={`inline-flex rounded-[4px] border border-transparent p-[0.5px] shadow-[0_0_10px_rgba(0,0,0,0.12)] ${styles.iconBorder}`}
+                >
+                  <Image
+                    src={audaxLogoFull}
+                    alt="AUDAX"
+                    className="h-[46px] w-auto rounded-[3px] bg-[#f7f7f7] object-contain"
+                    width={500}
+                    height={48}
+                    priority
+                  />
+                </span>
               </Link>
             </div>
 

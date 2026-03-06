@@ -24,3 +24,18 @@
 .active::after {
     transform: translateX(-50%) scaleX(1);
 }
+
+.iconBorder {
+    background: linear-gradient(115deg, #b48a2d, #262626, #b48a2d);
+    background-size: 220% 220%;
+    animation: iconBorderShimmer 4.5s linear infinite;
+}
+
+@keyframes iconBorderShimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
